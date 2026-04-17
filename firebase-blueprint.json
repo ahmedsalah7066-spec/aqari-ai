@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "App user profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] }
+      },
+      "required": ["uid", "email"]
+    },
+    "Contract": {
+      "title": "Contract",
+      "description": "Real estate contract details",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "unitDetails": { "type": "string" },
+        "totalPrice": { "type": "number" },
+        "deliveryDate": { "type": "string" },
+        "deliveryGracePeriod": { "type": "string" },
+        "maintenanceDeposit": { "type": "number" },
+        "maintenanceDepositDueDate": { "type": "string" },
+        "maintenanceType": { "type": "string", "enum": ["standalone", "integrated"] },
+        "isMaintenancePaid": { "type": "boolean" },
+        "unitArea": { "type": "number" },
+        "rentalStatus": { "type": "string", "enum": ["vacant", "rented"] },
+        "rentalAmount": { "type": "number" },
+        "rentalDuration": { "type": "string" },
+        "rentalStartDate": { "type": "string", "format": "date" },
+        "contractDate": { "type": "string" },
+        "usdPriceAtContract": { "type": "number" },
+        "exchangeRateAtContract": { "type": "number" },
+        "lastVacancyDate": { "type": "string", "format": "date" },
+        "legalAdvice": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title"]
+    },
+    "Installment": {
+      "title": "Installment",
+      "description": "Payment installment",
+      "type": "object",
+      "properties": {
+        "contractId": { "type": "string" },
+        "amount": { "type": "number" },
+        "dueDate": { "type": "string", "format": "date" },
+        "isPaid": { "type": "boolean" },
+        "description": { "type": "string" },
+        "orderIndex": { "type": "number" }
+      },
+      "required": ["contractId", "amount", "dueDate"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile document"
+    },
+    "/contracts/{contractId}": {
+      "schema": "Contract",
+      "description": "Contract document"
+    },
+    "/contracts/{contractId}/installments/{installmentId}": {
+      "schema": "Installment",
+      "description": "Installment subcollection"
+    }
+  }
+}

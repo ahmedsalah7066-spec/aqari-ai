@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Rules (Public Access - No Login Required)
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    match /contracts/{contractId} {
+      allow read, write: if true;
+
+      match /installments/{installmentId} {
+        allow read, write: if true;
+      }
+    }
+  }
+}
