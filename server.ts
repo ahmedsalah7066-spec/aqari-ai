@@ -201,5 +201,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(\`Backend API server running on port \${port}\`);
+  console.log(`Backend API server running on port ${port}`);
 });
