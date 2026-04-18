@@ -167,7 +167,14 @@ export default function App() {
         body: JSON.stringify({ base64Data, mimeType: file.type })
       });
 
-      if (!response.ok) throw new Error('API Error');
+      if (!response.ok) {
+        try {
+          const errData = await response.json();
+          throw new Error(errData.error || 'API Error');
+        } catch(e) {
+          throw new Error('API Error');
+        }
+      }
 
       const analysis: ContractAnalysis = await response.json();
 
@@ -209,7 +216,7 @@ export default function App() {
       setSelectedContractId(contractRef.id);
     } catch (err) {
       console.error("Analysis Error:", err);
-      setError("فشل تحليل العقد. تأكد من وضوح الصورة وحاول مرة أخرى.");
+      setError(err instanceof Error && err.message !== 'API Error' ? err.message : "فشل تحليل العقد. تأكد من وضوح الصورة وحاول مرة أخرى.");
     } finally {
       setAnalyzing(false);
     }
