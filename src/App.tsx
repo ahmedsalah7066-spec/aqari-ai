@@ -388,7 +388,7 @@ export default function App() {
           <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
             <Scale className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-lg text-slate-900">عقودي</span>
+          <span className="font-bold text-lg text-slate-900">عقاري</span>
         </div>
         <button 
           onClick={() => setSidebarOpen(true)}
@@ -421,7 +421,7 @@ export default function App() {
             <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
               <Scale className="w-6 h-6 text-white" />
             </div>
-            <span className="font-bold text-xl text-slate-900">عقودي</span>
+            <span className="font-bold text-xl text-slate-900">عقاري</span>
           </div>
           <button 
             onClick={() => setSidebarOpen(false)}
