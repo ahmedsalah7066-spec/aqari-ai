@@ -169,13 +169,14 @@ export default function App() {
 
       if (!response.ok) {
         let errText = `HTTP Error ${response.status}`;
+        const clonedRes = response.clone();
         try {
           const errData = await response.json();
           throw new Error(errData.error || errText);
         } catch(e) {
           try {
-            const rawText = await response.text();
-            throw new Error(`${errText}: ${rawText.substring(0, 100)}`);
+            const rawText = await clonedRes.text();
+            throw new Error(`${errText}: ${rawText.substring(0, 150)}`);
           } catch(e2) {
             throw new Error(errText);
           }
