@@ -388,7 +388,7 @@ export default function App() {
     : 0;
 
   return (
-    <div className="h-screen bg-slate-50 flex flex-col md:flex-row text-right overflow-hidden" dir="rtl">
+    <div className="h-[100dvh] bg-slate-50 flex flex-col md:flex-row text-right overflow-hidden" dir="rtl">
       {/* Mobile Header */}
       <div className="md:hidden bg-white border-b border-slate-200 p-4 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-3">
@@ -517,7 +517,7 @@ export default function App() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 md:h-screen overflow-y-auto p-4 md:p-8 relative">
+      <main className="flex-1 overflow-y-auto p-4 md:p-8 relative">
         {error && (
           <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl flex items-center gap-3 border border-red-100 shadow-sm max-w-5xl mx-auto">
             <AlertCircle className="w-5 h-5 flex-shrink-0" />
