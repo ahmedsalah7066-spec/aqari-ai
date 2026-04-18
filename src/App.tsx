@@ -455,7 +455,12 @@ export default function App() {
                 type="file" 
                 className="hidden" 
                 accept="image/*,application/pdf" 
-                onChange={(e) => e.target.files?.[0] && analyzeContract(e.target.files[0])}
+                onChange={(e) => {
+                  if (e.target.files?.[0]) {
+                    analyzeContract(e.target.files[0]);
+                    e.target.value = '';
+                  }
+                }}
               />
             </div>
           </label>
