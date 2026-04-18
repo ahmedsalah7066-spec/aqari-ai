@@ -510,7 +510,16 @@ export default function App() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 md:h-screen overflow-y-auto p-4 md:p-8">
+      <main className="flex-1 md:h-screen overflow-y-auto p-4 md:p-8 relative">
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl flex items-center gap-3 border border-red-100 shadow-sm max-w-5xl mx-auto">
+            <AlertCircle className="w-5 h-5 flex-shrink-0" />
+            <span className="font-medium">{error}</span>
+            <button onClick={() => setError(null)} className="mr-auto p-1 hover:bg-red-100 rounded-lg">
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
         <AnimatePresence mode="wait">
           {selectedContractId && currentContract ? (
             <motion.div 
@@ -913,12 +922,7 @@ export default function App() {
               <h2 className="text-2xl font-bold text-slate-900 mb-2">ابدأ بتحليل عقدك الأول</h2>
               <p className="text-slate-500 max-w-md mx-auto mb-8">قم برفع صورة العقد أو ملف PDF ليقوم المحامي الذكي باستخراج الأقساط وتقديم النصيحة القانونية لك.</p>
               
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl flex items-center gap-3 border border-red-100">
-                  <AlertCircle className="w-5 h-5" />
-                  <span className="font-medium">{error}</span>
-                </div>
-              )}
+              {/* Error is now shown globally at the top */}
 
               <label className="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 cursor-pointer">
                 <Upload className="w-5 h-5" />
@@ -927,7 +931,12 @@ export default function App() {
                   type="file" 
                   className="hidden" 
                   accept="image/*,application/pdf" 
-                  onChange={(e) => e.target.files?.[0] && analyzeContract(e.target.files[0])}
+                  onChange={(e) => {
+                    if (e.target.files?.[0]) {
+                      analyzeContract(e.target.files[0]);
+                      e.target.value = '';
+                    }
+                  }}
                 />
               </label>
             </div>
