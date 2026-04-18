@@ -37,7 +37,7 @@ app.post('/api/analyze-rental', async (req, res) => {
     `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash",
       contents: [
         { parts: [{ text: prompt }, { inlineData: { data: base64Data, mimeType } }] }
       ],
@@ -111,7 +111,7 @@ app.post('/api/analyze-contract', async (req, res) => {
     `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash",
       contents: [
         { parts: [{ text: prompt }, { inlineData: { data: base64Data, mimeType } }] }
       ],
@@ -175,7 +175,7 @@ app.post('/api/compare-contracts', async (req, res) => {
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash",
       contents: [{ parts: [{ text: prompt }] }]
     });
 
