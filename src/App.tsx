@@ -168,11 +168,17 @@ export default function App() {
       });
 
       if (!response.ok) {
+        let errText = `HTTP Error ${response.status}`;
         try {
           const errData = await response.json();
-          throw new Error(errData.error || 'API Error');
+          throw new Error(errData.error || errText);
         } catch(e) {
-          throw new Error('API Error');
+          try {
+            const rawText = await response.text();
+            throw new Error(`${errText}: ${rawText.substring(0, 100)}`);
+          } catch(e2) {
+            throw new Error(errText);
+          }
         }
       }
 
