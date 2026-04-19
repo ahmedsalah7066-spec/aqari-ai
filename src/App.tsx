@@ -392,8 +392,8 @@ export default function App() {
       {/* Mobile Header */}
       <div className="md:hidden bg-white border-b border-slate-200 p-4 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-            <Scale className="w-5 h-5 text-white" />
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden bg-white shadow-sm border border-slate-100">
+            <img src="/logo.png" alt="Aqari Logo" className="w-full h-full object-contain p-1" />
           </div>
           <span className="font-bold text-lg text-slate-900">عقاري</span>
         </div>
@@ -425,8 +425,8 @@ export default function App() {
       )}>
         <div className="p-6 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
-              <Scale className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-white shadow-sm border border-slate-100">
+              <img src="/logo.png" alt="Aqari Logo" className="w-full h-full object-contain p-1.5" />
             </div>
             <span className="font-bold text-xl text-slate-900">عقاري</span>
           </div>
@@ -512,10 +512,6 @@ export default function App() {
               <p className="font-bold text-slate-900 truncate">مستخدم محلي</p>
               <p className="text-xs text-slate-500 truncate">يتم حفظ البيانات على هذا الجهاز</p>
             </div>
-          </div>
-          <div className="pt-3 border-t border-slate-200/60 text-center bg-indigo-50/50 rounded-xl p-2 border border-indigo-100/50">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Sponsored by</p>
-            <p className="text-sm font-black text-indigo-900 tracking-tight">Mostaqar Properties</p>
           </div>
         </div>
       </aside>
@@ -950,11 +946,6 @@ export default function App() {
                   }}
                 />
               </label>
-
-              <div className="mt-auto pt-8 flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sponsored by</span>
-                <span className="text-lg font-black text-indigo-900 tracking-tight">Mostaqar Properties</span>
-              </div>
             </div>
           )}
         </AnimatePresence>
