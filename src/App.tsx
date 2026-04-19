@@ -392,8 +392,8 @@ export default function App() {
       {/* Mobile Header */}
       <div className="md:hidden bg-white border-b border-slate-200 p-4 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden bg-white shadow-sm border border-slate-100">
-            <img src="/logo.png" alt="Aqari Logo" className="w-full h-full object-contain p-1" />
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-white shadow-sm border border-slate-100">
+            <img src="/logo.png" alt="Aqari Logo" className="w-full h-full object-contain" />
           </div>
           <span className="font-bold text-lg text-slate-900">عقاري</span>
         </div>
@@ -425,8 +425,8 @@ export default function App() {
       )}>
         <div className="p-6 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-white shadow-sm border border-slate-100">
-              <img src="/logo.png" alt="Aqari Logo" className="w-full h-full object-contain p-1.5" />
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-white shadow-sm border border-slate-100">
+              <img src="/logo.png" alt="Aqari Logo" className="w-full h-full object-contain" />
             </div>
             <span className="font-bold text-xl text-slate-900">عقاري</span>
           </div>
