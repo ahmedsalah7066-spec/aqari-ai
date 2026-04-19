@@ -503,7 +503,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="p-4 bg-slate-50 border-t border-slate-200">
+        <div className="p-4 bg-slate-50 border-t border-slate-200 space-y-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center">
               <UserIcon className="w-6 h-6 text-slate-400" />
@@ -512,6 +512,10 @@ export default function App() {
               <p className="font-bold text-slate-900 truncate">مستخدم محلي</p>
               <p className="text-xs text-slate-500 truncate">يتم حفظ البيانات على هذا الجهاز</p>
             </div>
+          </div>
+          <div className="pt-3 border-t border-slate-200/60 text-center bg-indigo-50/50 rounded-xl p-2 border border-indigo-100/50">
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Sponsored by</p>
+            <p className="text-sm font-black text-indigo-900 tracking-tight">Mostaqar Properties</p>
           </div>
         </div>
       </aside>
@@ -931,7 +935,7 @@ export default function App() {
               
               {/* Error is now shown globally at the top */}
 
-              <label className="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 cursor-pointer">
+              <label className="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 cursor-pointer mb-12">
                 <Upload className="w-5 h-5" />
                 رفع العقد للتحليل
                 <input 
@@ -946,6 +950,11 @@ export default function App() {
                   }}
                 />
               </label>
+
+              <div className="mt-auto pt-8 flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sponsored by</span>
+                <span className="text-lg font-black text-indigo-900 tracking-tight">Mostaqar Properties</span>
+              </div>
             </div>
           )}
         </AnimatePresence>

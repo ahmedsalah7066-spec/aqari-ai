@@ -51,7 +51,7 @@ app.post('/api/analyze-rental', async (req, res) => {
 
   } catch (error: any) {
     console.error("Rental Analysis Error:", error);
-    res.status(500).json({ error: 'Failed to analyze rental contract.' });
+    res.status(500).json({ error: error?.message || 'Failed to analyze rental contract.' });
   }
 });
 
@@ -162,7 +162,7 @@ app.post('/api/analyze-contract', async (req, res) => {
 
   } catch (error: any) {
     console.error("Analysis Error:", error);
-    res.status(500).json({ error: 'Failed to analyze contract.' });
+    res.status(500).json({ error: error?.message || 'Failed to analyze contract.' });
   }
 });
 
